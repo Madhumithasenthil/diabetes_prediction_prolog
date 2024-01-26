@@ -1,2 +1,9 @@
 # diabetes_prediction_prolog
-Diabetes prediction system using prolog.
+DESCRIPTION:
+The diabetes identification and suggestion system are used to diagnose the diabetes  among the patients. The diagnosis is made considering the symptoms that can be seen  or felt. This identification and suggestion system helps the doctor or expert in making  the appropriate diagnosis of the patient. The diseases have many common symptoms  and some of them are very much alike. This creates many difficulties for the doctor to  reach a right decision or diagnosis. This system can remove these difficulties and it has  knowledge of common diabetes. This diabetes identification and suggestion system is  implemented in SWI Prolog, Prolog is a logic programming language associated with  artificial intelligence and computational linguistics. In Prolog, program logic is  expressed in terms of relations, and a computation is initiated by running a query over  these relations. The information obtained from this disease identification and suggestion  system is like the information given by a doctor or expert in that area. In this system the  user or patient is asked to answer with YES or NO with the help of whether a particular  symptom appears or not. In the end, based on the user's or patient’s answers, the name  of the disease is displayed on the screen with the suggestions and advice.  
+
+HOW TO RUN:
+Here the proposed project is implemented in SWI-Prolog. 
+Initially, the code starts with a initialization by getting the name from the user and the system starts when we give “go.“ Then the user start to answer to the agent with yes(y.)  or no(n.) based on the symptom faced by them ,then the agent gives suggestions and  advices like what actions should be taken or whether the user should see the doctor  immediately or not. If the agent is unable to detect the type of diabetes from the  knowledge trained by the programmer , it will print as takecare .. 
+
+
