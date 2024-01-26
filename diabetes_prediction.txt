@@ -1,0 +1,102 @@
+name(X):- 
+write('WELCOME TO THE DIABETES PREDICTION SYSTEM,Enter your name:'), read(X). 
+go:- 
+hypothesis(Diabetes), 
+write(''), 
+write(Disease), 
+nl, 
+write('TAKE CARE'), 
+undo. 
+/*Hypothesis that should be tested*/ 
+hypothesis(type_1_diabetes) :- type_1_diabetes, !. 
+hypothesis(type_2_diabetes) :- type_2_diabetes, !. 
+hypothesis(gestational_diabetes) :- gestational_diabetes, !. 
+hypothesis(pre_diabetes) :- pre_diabetes, !. 
+hypothesis(unknown). /* no diagnosis*/ 
+/*Hypothesis Identification Rules*/ 
+21 
+type_1_diabetes :- 
+verify(frequent_urination), 
+verify(excessive_thirst), 
+verify(slow_healing_wounds), 
+verify(fatigue), 
+verify(frequent_infections), 
+verify(extreme_hunger),  
+write('You may have the risk of TYPE1 DIABETES'), 
+nl,  
+write('Advices and Suggestions:'), 
+nl, 
+write('1: Consult Doctor and have annual checkups/tab'), 
+nl, 
+write('2: Increase your physical activity/tab'), 
+nl, 
+write('3: Stay hydrated and practice stress reduction techniques like yoga'), nl. 
+type_2_diabetes :-  
+verify(frequent_urination), 
+verify(excessive_thirst),
+22 
+verify(slow_healing_wounds),  
+verify(fatigue), 
+verify(areas_of_darkened_skin), 
+verify(unexplained_weight_loss_or_gain), 
+write('You may have the risk of TYPE2 DIABETES'), 
+nl,  
+write('Advices and Suggestions:'), 
+nl, 
+write('1: Consult Doctor and have annual checkups/tab'), 
+nl, 
+write('2:Take precautions to avoid low blood sugar /tab'), 
+nl, 
+write('3:Always carry fast-acting sources of glucose such as glucose tablets'), nl. 
+gestational_diabetes :-  
+verify(pregnant), 
+verify(pcos), 
+verify(pre_diabetes),  
+verify(multiple_gestation), 
+verify(poor_diet), 
+23 
+  
+write('You may have the risk of GESTATIONAL DIABETES'), 
+nl,  
+write('Advices and Suggestions:'), 
+nl, 
+write('1:Monitor your blood sugar levels regularly/tab'), 
+nl, 
+write('2:Continue taking prenatal vitamins /tab'), 
+nl, 
+write('3:Breast feeding can help control blood sugar levels after delivery'), nl. 
+Pre_diabetes:-  
+verify(darkenend_skin_patches), 
+verify(young_ages), 
+verify(increased_waist_circumference), 
+verify(increased_thirst), 
+write('You may have the risk of PRE-DIABETES'), 
+nl,  
+write('Advices and Suggestions:'), 
+nl,
+24 
+write('1:Stay well hydrated/tab'), 
+nl, 
+write('2:Make changes to your lifestyles such as physical activity, healthy eating, weight  management /tab'), 
+nl, 
+write('3:Prediabetes is a warning sign and early intervention can help prevent or delay the  onset of TYPE2 Diabetes'), 
+nl. 
+/* how to ask questions */ 
+ask(Question) :- 
+write('Does the patient have following symptom:'),  
+write(Question), 
+write('? '), 
+read(Response), 
+nl, 
+( (Response == yes ; Response == y) 
+->assert(yes(Question)) ; 
+assert(no(Question)), fail). 
+:- dynamic yes/1,no/1. 
+/*How to verify something */ 
+verify(S) :-
+25 
+(yes(S)->true ;(no(S) ->fail ;ask(S))).  
+/* undo all yes/no assertions*/ 
+undo :- retract(yes(_)),fail. 
+undo :- retract(no(_)),fail. 
+undo.
